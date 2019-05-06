@@ -1,13 +1,10 @@
 package com.example.spring_step_1;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import com.example.spring_step_1.basics.BinarySearchImpl;
-import com.example.spring_step_1.scope.PersonDAO;
 
 @SpringBootApplication
 public class SpringStep1BasicApplication {

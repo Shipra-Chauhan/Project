@@ -1,4 +1,3 @@
-
 //The package is not a part of component scan path
 package com.example.spring_step_1;
 
@@ -23,11 +22,10 @@ public class SpringStep1BasicComponentScanApplication {
 
 	public static void main(String[] args) {
 
-		
 				// BinarySearchImpl binarySearch =
 				// new BinarySearchImpl(new QuickSortAlgorithm());
 				// Application Context
-				ApplicationContext applicationContext = SpringApplication.run(SpringStep1BasicApplication.class, args);
+				ApplicationContext applicationContext = SpringApplication.run(SpringStep1BasicComponentScanApplication.class, args);
 				ComponentDAO compDAO = applicationContext.getBean(ComponentDAO.class);
 				LOGGER.info("{}", compDAO);
 				LOGGER.info("{}", compDAO.getJdbcConnection());

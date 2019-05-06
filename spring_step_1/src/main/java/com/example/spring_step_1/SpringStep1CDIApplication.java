@@ -30,4 +30,10 @@ public class SpringStep1CDIApplication {
 		LOGGER.info("{} , dao --{}", cdiBusiness, cdiBusiness.getCdiDao());
 	}
 
+	
+	/*
+	 * what to use CDI standard or spring annotations?
+	 * CDI is JAVA EE standard. But it doesnt matter you can use any thing. */
+	
+	
 }

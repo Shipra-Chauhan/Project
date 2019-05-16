@@ -10,14 +10,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.spring_boot.example.first_basic.exception.BookIdMismatchException;
-import com.spring_boot.example.first_basic.exception.BookMismatchException;
 import com.spring_boot.example.first_basic.exception.BookNotFoundException;
 import com.spring_boot.example.first_basic.persistence.model.Book;
 import com.spring_boot.example.first_basic.persistence.repository.BookRepository;
 
+@RestController
+@RequestMapping("/api/books")
 public class BookController {
 	
 	@Autowired
@@ -33,12 +36,12 @@ public class BookController {
 	}
 
 	@GetMapping("/{id}")
-	public Book findOne(@PathVariable Long id) throws BookNotFoundException {
-		return bookRepository.findById(id)
-				.orElseThrow(BookNotFoundException :: new);
+	public boolean findOne(@PathVariable Long id) throws BookNotFoundException {
+		return bookRepository.existsById(id);
+				//.orElseThrow(BookNotFoundException :: new);
 	}
 	
-	@PostMapping
+	@PostMapping("/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Book create(@RequestBody Book book) {
 		return bookRepository.save(book);

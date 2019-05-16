@@ -19,6 +19,7 @@ import com.spring_boot.example.first_basic.exception.BookNotFoundException;
 import com.spring_boot.example.first_basic.persistence.model.Book;
 import com.spring_boot.example.first_basic.persistence.repository.BookRepository;
 
+//https://s3.amazonaws.com/baeldung.com/A+Microservice+Architecture+with+Spring+Boot+and+Spring+Cloud.pdf?__s=idyx7yr318sdjnqo6j7r
 @RestController
 @RequestMapping("/api/books")
 public class BookController {
@@ -36,9 +37,9 @@ public class BookController {
 	}
 
 	@GetMapping("/{id}")
-	public boolean findOne(@PathVariable Long id) throws BookNotFoundException {
-		return bookRepository.existsById(id);
-				//.orElseThrow(BookNotFoundException :: new);
+	public Book findOne(@PathVariable Long id) throws BookNotFoundException {
+		return bookRepository.findById(id)
+				.orElseThrow(BookNotFoundException :: new);
 	}
 	
 	@PostMapping("/{id}")

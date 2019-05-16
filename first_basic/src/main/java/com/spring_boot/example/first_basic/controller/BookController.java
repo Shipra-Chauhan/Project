@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.spring_boot.example.first_basic.exception.BookIdMismatchException;
-import com.spring_boot.example.first_basic.exception.BookMismatchException;
 import com.spring_boot.example.first_basic.exception.BookNotFoundException;
 import com.spring_boot.example.first_basic.persistence.model.Book;
 import com.spring_boot.example.first_basic.persistence.repository.BookRepository;

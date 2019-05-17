@@ -20,8 +20,10 @@ import com.spring_boot.example.first_basic.persistence.model.Book;
 import com.spring_boot.example.first_basic.persistence.repository.BookRepository;
 
 //https://s3.amazonaws.com/baeldung.com/A+Microservice+Architecture+with+Spring+Boot+and+Spring+Cloud.pdf?__s=idyx7yr318sdjnqo6j7r
+
+//https://spring.io/guides/gs/handling-form-submission/
 @RestController
-@RequestMapping("/api/books")
+@RequestMapping("/books")
 public class BookController {
 	
 	@Autowired

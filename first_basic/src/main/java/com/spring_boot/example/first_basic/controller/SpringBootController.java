@@ -20,21 +20,19 @@ public class SpringBootController {
 
 		System.out.println("My app : " + appName);
 		model.addAttribute("appName", appName);
-
 		return "home";
 	}
 
 	@GetMapping("/books")
 	public String bookForm(Model model) {
 
-		System.out.println("My book id : "); 
-		 model.addAttribute("book", new Book());
+		 model.addAttribute("books", new Book());
 		return "books";
 	}
 	
-	@PostMapping("/api/books")
+	@PostMapping("/books")
 	public String bookSubmit(@ModelAttribute Book book) {
-		return "home";
+		return "result";
 	}
 
 }

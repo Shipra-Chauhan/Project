@@ -40,6 +40,7 @@ public class BookController {
 
 	@GetMapping("/{id}")
 	public Book findOne(@PathVariable Long id) throws BookNotFoundException {
+		System.out.println("My book id : 1 :"+id); 
 		return bookRepository.findById(id)
 				.orElseThrow(BookNotFoundException :: new);
 	}
@@ -47,6 +48,7 @@ public class BookController {
 	@PostMapping("/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Book create(@RequestBody Book book) {
+		//System.out.println("My book id : "+book.getId()); 
 		return bookRepository.save(book);
 	}
 	

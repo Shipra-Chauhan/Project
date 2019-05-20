@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +24,7 @@ import com.spring_boot.example.first_basic.persistence.repository.BookRepository
 
 //https://spring.io/guides/gs/handling-form-submission/
 @RestController
-@RequestMapping("/books")
+@RequestMapping("/books") // - after URl this must be present and then further the ath must be appended
 public class BookController {
 	
 	@Autowired
@@ -42,7 +43,22 @@ public class BookController {
 	public Book findOne(@PathVariable Long id) throws BookNotFoundException {
 		return bookRepository.findById(id)
 				.orElseThrow(BookNotFoundException :: new);
+		
+		/*
+		 * orElseThrow(): This is a method found in the Optional class in Java8 which
+		 * was introduced to handle Exceptions. The optional class provides various
+		 * utility methods to check the presence or absence of an object, which helps to
+		 * deal with NullPointerException. orElseThrow is a method that Returns value if
+		 * present, otherwise invokes an exception.
+		 */
 	}
+	
+	@GetMapping("/")
+	public Book get() {
+		return bookRepository.findById(1L)
+				.orElseThrow(RuntimeException :: new);
+	}
+	
 	
 	@PostMapping("/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
@@ -51,11 +67,17 @@ public class BookController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleted(@PathVariable Long id) throws BookNotFoundException {
+	public ResponseEntity<?> deleted(@PathVariable Long id) throws BookNotFoundException {
 		bookRepository.findById(id)
 		.orElseThrow(BookNotFoundException::new);
 		bookRepository.deleteById(id);
+		return ResponseEntity.ok().build();
 		
+		/* ResponseEntity -
+		 * It’s a Java class which inherits HttpEntity class to manipulate the HTTP
+		 * Responses. Whether the request of the connection is “OK” or if there are any
+		 * problems, throw an exception from the HttpEntity class.
+		 */
 	}
 	
 	@PutMapping("/{id}")

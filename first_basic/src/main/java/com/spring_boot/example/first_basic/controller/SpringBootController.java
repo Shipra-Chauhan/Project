@@ -24,7 +24,7 @@ public class SpringBootController {
 	}
 
 	@GetMapping("/books")
-	public @ResponseBody String bookForm(Model model) {
+	public String bookForm(Model model) {
 
 		model.addAttribute("books", new Book());
 		return "books";
@@ -32,7 +32,7 @@ public class SpringBootController {
 
 	@PostMapping("/books")
 	public String bookSubmit(@ModelAttribute Book book) {
-		return "home";
+		return "result";
 	}
 
 }

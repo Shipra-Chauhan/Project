@@ -26,12 +26,11 @@ public class SpringBootController {
 	@GetMapping("/books")
 	public @ResponseBody String bookForm(Model model) {
 
-		System.out.println("My book id : ");
-		model.addAttribute("book", new Book());
+		model.addAttribute("books", new Book());
 		return "books";
 	}
 
-	@PostMapping("/api/books")
+	@PostMapping("/books")
 	public String bookSubmit(@ModelAttribute Book book) {
 		return "home";
 	}

@@ -1,0 +1,1 @@
+insert into books values (1, 'hello world', 'Shipra'); /* values added in string using single quotes*/

@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @ServletComponentScan
@@ -19,4 +20,8 @@ public class FirstBasicApplication {
 		SpringApplication.run(FirstBasicApplication.class, args);
 	}
 
+	/*@Bean
+	public ModelMapper modelMapper() {
+		return new ModelMapper();
+	}*/
 }

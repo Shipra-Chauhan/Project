@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,6 +40,7 @@ public class BookController {
 	@Autowired
 	private BookRepository bookRepository;
 
+	@GetMapping("/")
 	public Iterable<Book> findAll() {
 		return bookRepository.findAll();
 	}
@@ -62,19 +64,18 @@ public class BookController {
 		 */
 	}
 
-	@GetMapping("/")
-	public String get(Model model) {
-		model.addAttribute("books", new Book());
-		return "books"; //returned as a string response when restcontroller is used and as an view(like.html) when controller is used.
-		
-		//return bookRepository.findById(1L).orElseThrow(RuntimeException::new);
-	}
+//	@GetMapping("/")
+//	public String get( Model model) {
+//		model.addAttribute("books", new Book());
+//		return "books"; //returned as a string response when restcontroller is used and as an view(like.html) when controller is used.
+//		
+//		//return bookRepository.findById(1L).orElseThrow(RuntimeException::new);
+//	}
 
 	@PostMapping("/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public String create(@RequestBody @ModelAttribute Book book) {
-		// System.out.println("My book id : "+book.getId());
-		
+		 System.out.println("My book id : "+book.getId());
 		bookRepository.save(book);
 		return "result";
 	}

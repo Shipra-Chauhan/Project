@@ -1,5 +1,6 @@
 package com.spring_boot.example.first_basic.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,9 @@ import com.spring_boot.example.first_basic.persistence.model.Book;
 
 @Controller
 public class SpringBootController {
+	
+	@Autowired
+	BookController b;
 
 	@Value("${spring.application.name}")
 	String appName;
@@ -32,6 +36,7 @@ public class SpringBootController {
 
 	@PostMapping("/books")
 	public String bookSubmit(@ModelAttribute Book book) {
+		b.create(book);
 		return "result";
 	}
 

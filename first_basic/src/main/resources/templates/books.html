@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="#" th:action="@{/books}" th:object="${books}" method="post">
+	<form action="#" th:action="@{/books/}+${books.id}" th:object="${books}" method="post">
 		Book Name : <br> <input type="text" th:field="*{title}"><br>
 		Book Id : <br> <input type="text" th:field="*{id}" ><br>
 		Book Author :<br> <input type="text" th:field="*{author}"><br>

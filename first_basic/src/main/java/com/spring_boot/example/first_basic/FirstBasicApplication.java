@@ -7,6 +7,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @ServletComponentScan
+//@EnableDiscoveryClient //try to contact a Consul agent 
 //@EnableJpaRepositories- to scan the specified package for repositories
 //@EntityScan- to pick up our JPA entities
 @EnableJpaRepositories("com.spring_boot.example.first_basic.persistence.repository")
@@ -18,7 +19,7 @@ public class FirstBasicApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FirstBasicApplication.class, args);
-		
+		//new SpringApplicationBuilder(FirstBasicApplication.class).web(WebApplicationType.NONE).run(args);
 	}
 
 	/*@Bean

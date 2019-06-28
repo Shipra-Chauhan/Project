@@ -21,6 +21,10 @@ spring:
     enabled: true
     prefix: classpath:/templates/
     suffix: .html
+  cloud:
+    consul: 
+      host: localhost
+      port: 8500
 #logging:
   #  level:
    #   org.springframework: 'debug '

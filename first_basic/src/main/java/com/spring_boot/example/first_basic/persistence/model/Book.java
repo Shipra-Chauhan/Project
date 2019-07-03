@@ -29,7 +29,7 @@ public class Book implements Serializable{
 
 	@Column(nullable = false)
 	private String author;
-
+	
 	public long getId() {
 		return id;
 	}

@@ -1,4 +1,4 @@
-package com.microservices.springboot.author;
+package com.spring_boot.example.Author;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

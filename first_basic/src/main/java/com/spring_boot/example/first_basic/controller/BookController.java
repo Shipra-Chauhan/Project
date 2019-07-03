@@ -1,11 +1,15 @@
 package com.spring_boot.example.first_basic.controller;
 
+import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,9 +18,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.spring_boot.example.first_basic.exception.BookIdMismatchException;
 import com.spring_boot.example.first_basic.exception.BookNotFoundException;
@@ -37,6 +41,9 @@ HTTP response body.The annotation @RestController combines the proceeding annota
 @RequestMapping("/books") // - after URl this must be present and then further the path must be appended
 public class BookController {
 
+	
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
 	private BookRepository bookRepository;
 
@@ -71,6 +78,22 @@ public class BookController {
 //		
 //		//return bookRepository.findById(1L).orElseThrow(RuntimeException::new);
 //	}
+	
+	@GetMapping("/author/{name}")
+	  public Book getAuthorDetails(@PathVariable String name) {
+
+	    Map<String, String> uriVariables = new HashMap<>();
+	    uriVariables.put("name", name);
+
+	    ResponseEntity<Book> responseEntity = new RestTemplate().getForEntity(
+	        "http://localhost:8000/author/{name}", Book.class,
+	        uriVariables);
+
+	    Book response = responseEntity.getBody();
+
+	    return new Book(response.getId(), from, to, response.getConversionMultiple(), quantity,
+	        quantity.multiply(response.getConversionMultiple()), response.getPort());
+	  }
 
 	@PostMapping("/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
@@ -105,3 +128,7 @@ public class BookController {
 	}
 
 }
+
+
+
+  

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.microservices.springboot.author.AuthorServiceProxy;
 import com.microservices.springboot.author.entity.Author;
 import com.microservices.springboot.author.repository.AuthorRepository;
 
@@ -17,11 +18,15 @@ public class AuthorController {
 
 	@Autowired
 	private AuthorRepository authorRepository;
+	
+	@Autowired
+	 private AuthorServiceProxy proxy;
 
 	@GetMapping("/author/{name}")
 	public Author retrieveAuthorDetails(@PathVariable String name) {
 
-		Author author = authorRepository.findByAuthorName(name);
+		Author author = proxy.retrieveAuthorDetails(name);
+		//authorRepository.findByAuthorName(name);
 		author.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
 
 		return author;

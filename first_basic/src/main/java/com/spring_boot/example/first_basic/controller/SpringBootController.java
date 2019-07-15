@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.spring_boot.example.first_basic.persistence.model.Book;
 
@@ -29,15 +29,15 @@ public class SpringBootController {
 
 	@GetMapping("/books")
 	public String bookForm(Model model) {
-
 		model.addAttribute("books", new Book());
 		return "books";
 	}
 
 	@PostMapping("/books")
-	public String bookSubmit(@ModelAttribute Book book) {
-		b.create(book);
-		return "result";
+	public ModelAndView bookSubmit(@ModelAttribute Book book) { //ModelAndView returns View and here, b.create(book) returns "result" which in turn will be used as html(view) and not text/json.
+		ModelAndView mav = new ModelAndView();   
+		mav.addObject(b.create(book));
+		return mav;
 	}
 
 }

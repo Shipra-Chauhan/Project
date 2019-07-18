@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.microservices.springboot.author.entity.Author;
+import com.spring_boot.example.first_basic.persistence.model.Book;
 
 /**
  * @author shchauhan
@@ -18,6 +18,6 @@ import com.microservices.springboot.author.entity.Author;
 public interface AuthorServiceProxy {
 	
 	@GetMapping("/author/{name}")
-	public Author retrieveAuthorDetails(@PathVariable String name);
+	public Book retrieveAuthorDetails(@PathVariable String name);
 
 }

@@ -18,11 +18,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.client.RestTemplate;
 
 import com.spring_boot.example.first_basic.exception.BookIdMismatchException;
 import com.spring_boot.example.first_basic.exception.BookNotFoundException;
+import com.spring_boot.example.first_basic.persistence.model.Author;
 import com.spring_boot.example.first_basic.persistence.model.Book;
 import com.spring_boot.example.first_basic.persistence.repository.BookRepository;
 
@@ -54,6 +56,7 @@ public class BookController {
 	}
 
 	@GetMapping("/title/{bookTitle}")
+	@ResponseBody
 	public List<Book> findByTitle(@PathVariable String bookTitle) {
 		return bookRepository.findByTitle(bookTitle);
 	}
@@ -81,16 +84,17 @@ public class BookController {
 //	}
 	
 	@GetMapping("/author/{name}")
-	  public Book getAuthorDetails(@PathVariable String name) {
+	//@ResponseBody
+	  public Author getAuthorDetails(@PathVariable String name) {
 
 	    Map<String, String> uriVariables = new HashMap<>();
 	    uriVariables.put("name", name);
 
-	    ResponseEntity<Book> responseEntity = new RestTemplate().getForEntity(
-	        "http://localhost:8080/author/{name}", Book.class,
+	    ResponseEntity<Author> responseEntity = new RestTemplate().getForEntity(
+	        "http://localhost:8080/author/{name}", Author.class,
 	        uriVariables);
 
-	    Book response = responseEntity.getBody();
+	    Author response = responseEntity.getBody();
 
 	    return response;
 	  }

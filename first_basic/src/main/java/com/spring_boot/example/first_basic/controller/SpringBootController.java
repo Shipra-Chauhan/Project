@@ -41,5 +41,6 @@ public class SpringBootController {
 		mav.addObject(b.create(book));
 		return mav;
 	}
+	
 
 }

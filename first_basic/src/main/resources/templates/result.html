@@ -9,9 +9,8 @@
 	<form th:object="${author}">
     <p th:text="'id: ' + ${book.id}" />
     <p th:text="'book name: ' + ${book.title}" />
-     <p th:text="'book author: ' + ${book.author}" />  For author details, Please click <a href = "/author">here</a> <br>
+     <p th:text="'book author: ' + ${book.author}" />For author details, Please click <a href = "/books/author">here</a> <br>
     <a href="/books">Submit another message</a>
-    
     <br>
     </form>
 </body>

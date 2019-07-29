@@ -14,7 +14,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 //@EntityScan- to pick up our JPA entities
 @EnableJpaRepositories("com.spring_boot.example.first_basic.persistence.repository")
 @EntityScan("com.spring_boot.example.first_basic.persistence.model")
-@SpringBootApplication(scanBasePackages = "com.spring_boot")
+@SpringBootApplication
 @EnableFeignClients("com.microservices.springboot.author")
 @EnableDiscoveryClient
 public class FirstBasicApplication {

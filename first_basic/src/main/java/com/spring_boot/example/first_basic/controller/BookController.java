@@ -101,7 +101,7 @@ public class BookController {
 
 	@PostMapping("/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
-	public String create(@RequestBody @ModelAttribute Book book) {
+	public String create(@RequestBody @ModelAttribute Book book) {    //@ModelAttribute for data binding
 		System.out.println("My book id : "+book.getId());
 		bookRepository.save(book);
 		return "result";

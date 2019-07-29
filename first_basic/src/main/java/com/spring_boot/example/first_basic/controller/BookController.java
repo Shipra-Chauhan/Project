@@ -1,11 +1,15 @@
 package com.spring_boot.example.first_basic.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,10 +20,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.spring_boot.example.first_basic.exception.BookIdMismatchException;
 import com.spring_boot.example.first_basic.exception.BookNotFoundException;
+import com.spring_boot.example.first_basic.persistence.model.Author;
 import com.spring_boot.example.first_basic.persistence.model.Book;
 import com.spring_boot.example.first_basic.persistence.repository.BookRepository;
 
@@ -33,10 +38,15 @@ The controller methods in most cases return ModelAndView object in order to rend
 of JSON/XML instead of HTML page. To make this happen, annotation @ResponseBody comes into play and automatically serialize the returned value into JSON/XML which later is saved into the 
 HTTP response body.The annotation @RestController combines the proceeding annotations and offers more convenience to create RESTful controllers.*/
 
-@RestController // - Combine @Controller and @ResponseBody annotations
+
+@Controller
+//@RestController // - Combine @Controller and @ResponseBody annotations
 @RequestMapping("/books") // - after URl this must be present and then further the path must be appended
 public class BookController {
 
+	
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
 	private BookRepository bookRepository;
 
@@ -46,13 +56,14 @@ public class BookController {
 	}
 
 	@GetMapping("/title/{bookTitle}")
+	@ResponseBody
 	public List<Book> findByTitle(@PathVariable String bookTitle) {
 		return bookRepository.findByTitle(bookTitle);
 	}
 
 	@GetMapping("/{id}")
 	public Book findOne(@PathVariable Long id) throws BookNotFoundException {
-		System.out.println("My book id : 1 :" + id);
+		System.out.println("My book id : " + id);
 		return bookRepository.findById(id).orElseThrow(BookNotFoundException::new);
 
 		/*
@@ -71,11 +82,27 @@ public class BookController {
 //		
 //		//return bookRepository.findById(1L).orElseThrow(RuntimeException::new);
 //	}
+	
+	@GetMapping("/author/{name}")
+	//@ResponseBody
+	  public Author getAuthorDetails(@PathVariable String name) {
+
+	    Map<String, String> uriVariables = new HashMap<>();
+	    uriVariables.put("name", name);
+
+	    ResponseEntity<Author> responseEntity = new RestTemplate().getForEntity(
+	        "http://localhost:8080/author/{name}", Author.class,
+	        uriVariables);
+
+	    Author response = responseEntity.getBody();
+
+	    return response;
+	  }
 
 	@PostMapping("/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
-	public String create(@RequestBody @ModelAttribute Book book) {
-		 System.out.println("My book id : "+book.getId());
+	public String create(@RequestBody @ModelAttribute Book book) {    //@ModelAttribute for data binding
+		System.out.println("My book id : "+book.getId());
 		bookRepository.save(book);
 		return "result";
 	}
@@ -105,3 +132,7 @@ public class BookController {
 	}
 
 }
+
+
+
+  

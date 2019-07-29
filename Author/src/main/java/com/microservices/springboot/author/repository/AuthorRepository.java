@@ -1,13 +1,12 @@
 package com.microservices.springboot.author.repository;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import com.microservices.springboot.author.model.Author;
+import com.microservices.springboot.author.entity.Author;
 
-
-public interface AuthorRepository extends JpaRepository<Author, Long>{
-
-	List<Author> findByAuthorName(String name);
+@Repository
+public interface AuthorRepository extends JpaRepository<Author, Long> {
+	
+	Author findByAuthorName(String name);
 }

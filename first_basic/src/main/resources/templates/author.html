@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Author Details</title>
+</head>
+<body>
+<form action = "#" th:action="@{/books/author/}+${author.authorName}" th:object="${author}">
+<p th:text="'Name: ' + ${author.authorName}" />
+<p th:text="'Address: ' + ${author.authorAddress}" />
+<p th:text="'Contact: ' + ${author.authorContact}" />
+<a href="/books">Go Back to home</a>
+</form>
+</html>

@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.spring_boot.example.first_basic.exception.BookIdMismatchException;
@@ -38,9 +38,8 @@ The controller methods in most cases return ModelAndView object in order to rend
 of JSON/XML instead of HTML page. To make this happen, annotation @ResponseBody comes into play and automatically serialize the returned value into JSON/XML which later is saved into the 
 HTTP response body.The annotation @RestController combines the proceeding annotations and offers more convenience to create RESTful controllers.*/
 
-
-@Controller
-//@RestController // - Combine @Controller and @ResponseBody annotations
+//@Controller
+@RestController // - Combine @Controller and @ResponseBody annotations
 @RequestMapping("/books") // - after URl this must be present and then further the path must be appended
 public class BookController {
 

@@ -1,6 +1,8 @@
 package com.microservices.springboot.author.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,6 +12,7 @@ import com.microservices.springboot.author.entity.Author;
 import com.microservices.springboot.author.repository.AuthorRepository;
 
 @RestController
+@RefreshScope
 public class AuthorController {
 
 	@Autowired
@@ -18,7 +21,11 @@ public class AuthorController {
 	@Autowired
 	private AuthorRepository authorRepository;
 
-	// @Autowired private AuthorServiceProxy proxy;
+	//@Autowired private AuthorServiceProxy proxy;
+	
+	/*
+	 * @Value("${mykey}") String key;
+	 */
 
 	@GetMapping("/author/{name}")
 	public Author retrieveAuthorDetails(@PathVariable String name) {

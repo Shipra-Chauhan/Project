@@ -55,7 +55,7 @@ public class BookController {
 	}
 
 	@GetMapping("/title/{bookTitle}")
-	@ResponseBody
+	//@ResponseBody
 	public List<Book> findByTitle(@PathVariable String bookTitle) {
 		return bookRepository.findByTitle(bookTitle);
 	}

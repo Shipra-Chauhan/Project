@@ -1,4 +1,4 @@
-package com.spring_step_1.basics.componentscan;
+package com.example.spring_step_1.componentscan;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;

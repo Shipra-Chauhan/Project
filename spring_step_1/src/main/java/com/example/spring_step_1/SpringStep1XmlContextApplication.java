@@ -1,12 +1,16 @@
 package com.example.spring_step_1;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.example.spring_step_1.basics.BinarySearchImpl;
+import com.example.spring_step_1.scope.XmlPersonDAO;
 
 /*
  * When spring boot is not used then we have to do the following things manually as there are lot of 
@@ -20,34 +24,35 @@ import com.example.spring_step_1.basics.BinarySearchImpl;
 @Configuration // Used to define configuration when spring is used.
 @ComponentScan  // To use when spring boot is not used as spring boot by default does component scan
 //@SpringBootApplication
-public class SpringStep1BasicApplication {
+public class SpringStep1XmlContextApplication {
 
-	// What are the beans?
-	// What are the dependencies of a bean?
-	// Where to search for beans? => No need
 
+	private static Logger LOGGER = LoggerFactory.getLogger(SpringStep1XmlContextApplication.class);
+	
 	public static void main(String[] args) {
 		
 		// BinarySearchImpl binarySearch =
 		// new BinarySearchImpl(new QuickSortAlgorithm());
 		// Application Context
-		ApplicationContext applicationContext = 
-				new AnnotationConfigApplicationContext(SpringStep1BasicApplication.class);  // To use it when Spring boot is not used
+		try(ClassPathXmlApplicationContext applicationContext = 
+				new ClassPathXmlApplicationContext("applicationContext.xml")){  // To use it when Spring boot is not used
 				//SpringApplication.run(SpringStep1BasicScopeApplication.class, args);  // To use it when Spring boot is used.
-		BinarySearchImpl binarySearch = 
-				applicationContext.getBean(BinarySearchImpl.class);
-		BinarySearchImpl binarySearch1 = 
-				applicationContext.getBean(BinarySearchImpl.class);
-		System.out.println(binarySearch);
-		System.out.println(binarySearch1);
-		int result = 
-				binarySearch.binarySearch(new int[] { 12, 4, 6 }, 3);
-		System.out.println(result);
+		XmlPersonDAO xmlPersonDAO = 
+				applicationContext.getBean(XmlPersonDAO.class);
+		System.out.println(xmlPersonDAO);
+		System.out.println(xmlPersonDAO.getXmlJdbcConnection());
+		LOGGER.info("Beans Loaded - > {}", 
+				(Object)applicationContext.getBeanDefinitionNames());
+		//Beans Loaded - > [xmlJdbcConnection, xmlPersonDAO]
 		
-		// To close application context, define applicationContext of type - AnnotationConfigApplicationContext instead of ApplicationContext
-		//AnnotationConfigApplicationContext - implements Autocloseable interface so can be used with try with ARM 
-		AnnotationConfigApplicationContext applicationContext2 = new AnnotationConfigApplicationContext(SpringStep1BasicApplication.class);
-		applicationContext2.close();
+		/* 				or    
+		 * applicationContext.getBeanDefinitionNames());
+		 * //Beans Loaded - > [xmlJdbcConnection]
+		 * */
+		
+				}catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 
 }

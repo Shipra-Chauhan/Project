@@ -6,10 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import com.example.spring_step_1.basics.BinarySearchImpl;
 import com.example.spring_step_1.cdi.CDIBusiness;
-import com.example.spring_step_1.cdi.CDI_Dao;
-import com.example.spring_step_1.scope.PersonDAO;
 
 @SpringBootApplication
 public class SpringStep1CDIApplication {
@@ -25,9 +22,12 @@ public class SpringStep1CDIApplication {
 		// BinarySearchImpl binarySearch =
 		// new BinarySearchImpl(new QuickSortAlgorithm());
 		// Application Context
-		ApplicationContext applicationContext = SpringApplication.run(SpringStep1CDIApplication.class, args);
-		CDIBusiness cdiBusiness = applicationContext.getBean(CDIBusiness.class);
-		LOGGER.info("{} , dao --{}", cdiBusiness, cdiBusiness.getCdiDao());
+
+		  ApplicationContext applicationContext =
+		  SpringApplication.run(SpringStep1CDIApplication.class, args); CDIBusiness
+		  cdiBusiness = applicationContext.getBean(CDIBusiness.class);
+		  LOGGER.info("{} , dao --{}", cdiBusiness, cdiBusiness.getCdiDao());
+		 
 	}
 
 	

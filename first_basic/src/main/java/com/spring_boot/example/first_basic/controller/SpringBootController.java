@@ -13,9 +13,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring_boot.example.first_basic.persistence.model.Book;
 
-//@Controller
-@RestController
-@RefreshScope
+@Controller
+//@RestController
+
+/*A Spring @Bean that is marked as @RefreshScope will get special treatment when there is a configuration change.
+This addresses the problem of stateful beans that only get their configuration injected when they are initialized.
+For instance if a DataSource has open connections when the database URL is changed via the Environment,
+we probably want the holders of those connections to be able to complete what they are doing. 
+Then the next time someone borrows a connection from the pool he gets one with the new URL.
+Refresh scope beans are lazy proxies that initialize when they are used (i.e. when a method is called),
+ and the scope acts as a cache of initialized values. To force a bean to re-initialize on the next method call you just need to invalidate its cache entry.
+ */
+@RefreshScope  
 public class SpringBootController {
 	
 	@Autowired

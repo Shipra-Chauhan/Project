@@ -1,0 +1,10 @@
+Beans Loaded - > 
+[springStep1BasicApplication, springStep1XmlContextApplication, binarySearchImpl,
+bubbleSortAlgorithm, quickSortAlgorithm, scopedTarget.componentDAO, componentDAO, 
+scopedTarget.componentJDBCConnection, componentJDBCConnection, CDIBusiness, 
+CDI_Dao, scopedTarget.JDBCConnection, JDBCConnection, scopedTarget.personDAO, personDAO, 
+org.springframework.context.annotation.internalConfigurationAnnotationProcessor, 
+org.springframework.context.annotation.internalAutowiredAnnotationProcessor, 
+org.springframework.context.annotation.internalCommonAnnotationProcessor, 
+org.springframework.context.event.internalEventListenerProcessor, 
+org.springframework.context.event.internalEventListenerFactory, xmlJdbcConnection, xmlPersonDAO]

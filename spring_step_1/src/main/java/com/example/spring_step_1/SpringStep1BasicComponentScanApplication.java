@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.spring_step_1.basics.componentscan.ComponentDAO;
+import com.example.spring_step_1.componentscan.ComponentDAO;
 
 @SpringBootApplication
 @ComponentScan("com.spring_step_1")

@@ -1,8 +1,8 @@
-package com.spring_boot.example.first_basic.service;
+package com.spring_boot.example.book.service;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.spring_boot.example.first_basic.persistence.model.Book;
+import com.spring_boot.example.book.persistence.model.Book;
 
 public interface BookService extends CrudRepository<Book, Long> {
 

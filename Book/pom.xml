@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.spring_boot.example</groupId>
-	<artifactId>first_basic</artifactId>
+	<artifactId>Book</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Book_Form</name>
 	<description>First project for Spring Boot</description>

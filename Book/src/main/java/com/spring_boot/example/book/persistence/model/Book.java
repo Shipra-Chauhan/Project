@@ -1,4 +1,4 @@
-package com.spring_boot.example.first_basic.persistence.model;
+package com.spring_boot.example.book.persistence.model;
 
 import java.io.Serializable;
 

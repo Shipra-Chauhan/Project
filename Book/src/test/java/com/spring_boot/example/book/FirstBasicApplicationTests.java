@@ -1,4 +1,4 @@
-package com.spring_boot.example.first_basic;
+package com.spring_boot.example.book;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

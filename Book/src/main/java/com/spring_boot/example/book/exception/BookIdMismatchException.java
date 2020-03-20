@@ -1,4 +1,4 @@
-package com.spring_boot.example.first_basic.exception;
+package com.spring_boot.example.book.exception;
 
 public class BookIdMismatchException extends Exception {
 

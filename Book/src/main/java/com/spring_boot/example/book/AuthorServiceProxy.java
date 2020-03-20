@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.spring_boot.example.first_basic;
+package com.spring_boot.example.book;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.spring_boot.example.first_basic.persistence.model.Book;
+import com.spring_boot.example.book.persistence.model.Book;
 
 /**
  * @author shchauhan

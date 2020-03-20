@@ -1,4 +1,4 @@
-package com.spring_boot.example.first_basic;
+package com.spring_boot.example.book;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @ServletComponentScan
-@EnableJpaRepositories("com.spring_boot.example.first_basic.persistence.repository") // to scan the specified package for repositories
-@EntityScan("com.spring_boot.example.first_basic.persistence.model") // to pick up our JPA entities
+@EnableJpaRepositories("com.spring_boot.example.book.persistence.repository") // to scan the specified package for repositories
+@EntityScan("com.spring_boot.example.book.persistence.model") // to pick up our JPA entities
 @SpringBootApplication
 @EnableFeignClients("com.microservices.springboot.author")
 @EnableDiscoveryClient //try to contact a Consul agent 

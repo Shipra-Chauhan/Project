@@ -1,4 +1,4 @@
-package com.spring_boot.example.first_basic.controller;
+package com.spring_boot.example.book.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spring_boot.example.first_basic.persistence.model.Book;
+import com.spring_boot.example.book.persistence.model.Book;
 
 @Controller
 //@RestController

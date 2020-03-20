@@ -1,4 +1,4 @@
-package com.spring_boot.example.first_basic.controller;
+package com.spring_boot.example.book.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,16 +17,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.spring_boot.example.first_basic.exception.BookIdMismatchException;
-import com.spring_boot.example.first_basic.exception.BookNotFoundException;
-import com.spring_boot.example.first_basic.persistence.model.Author;
-import com.spring_boot.example.first_basic.persistence.model.Book;
-import com.spring_boot.example.first_basic.persistence.repository.BookRepository;
+import com.spring_boot.example.book.exception.BookIdMismatchException;
+import com.spring_boot.example.book.exception.BookNotFoundException;
+import com.spring_boot.example.book.persistence.model.Author;
+import com.spring_boot.example.book.persistence.model.Book;
+import com.spring_boot.example.book.persistence.repository.BookRepository;
 
 //https://s3.amazonaws.com/baeldung.com/A+Microservice+Architecture+with+Spring+Boot+and+Spring+Cloud.pdf?__s=idyx7yr318sdjnqo6j7r
 

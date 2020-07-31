@@ -31,9 +31,9 @@ public class AuthorController {
 	public Author retrieveAuthorDetails(@PathVariable String name) {
 
 		 Author author = 
-				 //proxy.retrieveAuthorDetails(name);
+				// proxy.retrieveAuthorDetails(name);
 		authorRepository.findByAuthorName(name);
-		author.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
+	//	author.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
 
 		return author;
 	}

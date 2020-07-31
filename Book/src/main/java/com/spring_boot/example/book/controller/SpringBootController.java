@@ -32,6 +32,13 @@ public class SpringBootController {
 
 	@Value("${spring.application.name}")
 	String appName;
+	
+	@GetMapping("/index")
+    public String index(final Model model) {
+        model.addAttribute("title", "Docker + Spring Boot");
+        model.addAttribute("msg", "Welcome to the docker container!");
+        return "index";
+    }
 
 	@GetMapping("/")
 	public String homePage(Model model) {

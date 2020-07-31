@@ -1,10 +1,13 @@
 package com.spring_boot.example.book.service;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
 import com.spring_boot.example.book.persistence.model.Book;
 
-public interface BookService extends CrudRepository<Book, Long> {
+
+public interface BookService extends JpaRepository<Book, Long> {
+//extends CrudRepository<Book, Long> {
 
 	/*
 	 * Spring Boot will create all the queries for a model when you extend the

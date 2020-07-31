@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ad554755-9fc9-4c09-b603-f209b3d408ff" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Author/src/main/java/com/microservices/springboot/author/controller/AuthorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Author/src/main/java/com/microservices/springboot/author/controller/AuthorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Book/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Book/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Book/src/main/java/com/spring_boot/example/book/FirstBasicApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Book/src/main/java/com/spring_boot/example/book/FirstBasicApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Book/src/main/java/com/spring_boot/example/book/controller/SpringBootController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Book/src/main/java/com/spring_boot/example/book/controller/SpringBootController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Book/src/main/java/com/spring_boot/example/book/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Book/src/main/java/com/spring_boot/example/book/service/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_step_1/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/spring_step_1/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1cRo7yxpAYL1uIqR9jS7d9vtDTR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="D:/Sopra Banking/training-teams" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ad554755-9fc9-4c09-b603-f209b3d408ff" name="Default Changelist" comment="" />
+      <created>1590500604160</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590500604160</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1590500654278">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1590500654278" />
+  </component>
+</project>

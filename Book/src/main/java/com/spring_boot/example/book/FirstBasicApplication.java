@@ -23,6 +23,8 @@ public class FirstBasicApplication {
 		SpringApplication.run(FirstBasicApplication.class, args);
 		//new SpringApplicationBuilder(FirstBasicApplication.class).web(WebApplicationType.NONE).run(args);
 	}
+	
+	
 
 	/*@Bean
 	public ModelMapper modelMapper() {
